@@ -58,7 +58,10 @@ namespace Task2
 
             for (int i = 0; i <= b.Degree; i++)
             {
-                newFactors[i] += b.factors[i];
+                checked
+                {
+                    newFactors[i] += b.factors[i];
+                }
             }
 
             return new Polinome(newFactors);
@@ -75,7 +78,10 @@ namespace Task2
             double[] coefficentsRes = new double[degRes + 2];
             for (int i = 0; i <= a.Degree; i++)
                 for (int j = 0; j <= b.Degree; j++)
-                    coefficentsRes[i + j] += a.factors[i] * b.factors[j];
+                    checked
+                    {
+                        coefficentsRes[i + j] += a.factors[i] * b.factors[j];
+                    }
             return new Polinome(coefficentsRes);
         }
 
